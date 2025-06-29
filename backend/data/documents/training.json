@@ -1,0 +1,83 @@
+{
+  "title": "Expert Company Training & Certification Programs",
+  "language": "en",
+  "category": "training",
+  "content": {
+    "training_programs": {
+      "description": "Comprehensive training and certification programs for digital transformation technologies.",
+      "courses": [
+        {
+          "id": "ts-101",
+          "title": "Digital Analytics Fundamentals",
+          "description": "Core concepts in data analytics, visualization, and business intelligence implementation.",
+          "provider": "Expert Company Learning Services",
+          "certification": "Certified Analytics Associate",
+          "prerequisites": ["Basic data concepts", "SQL basics"],
+          "duration": "3 days",
+          "format": "hybrid"
+        },
+        {
+          "id": "ts-102",
+          "title": "Cloud Integration Specialist", 
+          "description": "Advanced cloud integration patterns, API development, and microservices architecture.",
+          "provider": "Expert Company Advanced Training",
+          "certification": "Certified Integration Specialist",
+          "prerequisites": ["API basics", "Cloud fundamentals"],
+          "duration": "5 days",
+          "format": "online"
+        },
+        {
+          "id": "ts-103",
+          "title": "Process Automation Expert",
+          "description": "Business process automation, RPA implementation, and workflow optimization.",
+          "provider": "Expert Company Process Excellence", 
+          "certification": "Certified Automation Expert",
+          "prerequisites": ["Process mapping experience", "Basic programming"],
+          "duration": "4 days",
+          "format": "in-person"
+        }
+      ]
+    },
+    "workshops": {
+      "description": "Hands-on workshops and practical training sessions.",
+      "events": [
+        {
+          "id": "ws-001",
+          "topic": "Building Modern Data Pipelines",
+          "description": "Hands-on workshop on data pipeline architecture and implementation.",
+          "date": "2025-07-15",
+          "location": "Online",
+          "registration_url": "https://expertcompany.com/workshops/data-pipelines"
+        },
+        {
+          "id": "ws-002",
+          "topic": "Advanced Cloud Security",
+          "description": "Deep-dive into cloud security best practices and compliance.",
+          "date": "2025-08-20",
+          "location": "Berlin, Germany",
+          "registration_url": "https://expertcompany.com/workshops/cloud-security"
+        }
+      ]
+    },
+    "news_events": [
+      {
+        "id": "ne-2025-07",
+        "title": "Digital Transformation Summit 2025",
+        "description": "Annual conference featuring latest trends and case studies.",
+        "date": "2025-07-10",
+        "location": "London, UK",
+        "url": "https://expertcompany.com/summit2025"
+      },
+      {
+        "id": "ne-2025-09",
+        "title": "AI & Automation Webinar Series",
+        "description": "Monthly webinar series covering AI and automation trends.",
+        "date": "2025-09-15",
+        "location": "Online",
+        "url": "https://expertcompany.com/webinars/ai-automation"
+      }
+    ]
+  },
+  "created_at": "2025-06-29T22:30:00.000000",
+  "version": "2.0"
+}

@@ -1,0 +1,70 @@
+{
+  "title": "Adobe Technical Support & Resources",
+  "language": "en",
+  "category": "technical_support",
+  "content": {
+    "support_resources": {
+      "description": "Comprehensive technical support resources and documentation.",
+      "resources": [
+        {
+          "id": "tsr-01",
+          "resource_type": "Knowledge Base Article",
+          "title": "Troubleshooting AEM Dispatcher Caching",
+          "url": "https://experienceleague.adobe.com/docs/experience-manager.html",
+          "partner_support": {
+            "partner_name": "Adobe Support",
+            "sla": "24×7, 4-hour response"
+          }
+        },
+        {
+          "id": "tsr-02",
+          "resource_type": "Community Forum",
+          "title": "Adobe Analytics Developer Community",
+          "url": "https://forums.adobe.com/community/analytics",
+          "partner_support": {
+            "partner_name": "Accenture Interactive",
+            "sla": "Business hours, next-business-day response"
+          }
+        }
+      ]
+    },
+    "partner_spotlights": {
+      "description": "Featured success stories and partner achievements.",
+      "spotlights": [
+        {
+          "id": "spp-spot-01",
+          "title": "Accenture Named Adobe Global SI Partner of the Year",
+          "url": "https://business.adobe.com/news-and-insights/partner-spotlight/accenture.html",
+          "summary": "Accenture's award-winning implementations in Experience Cloud."
+        },
+        {
+          "id": "spp-spot-02",
+          "title": "Capgemini Drives Digital Transformation for Retail",
+          "url": "https://business.adobe.com/news-and-insights/partner-spotlight/capgemini.html",
+          "summary": "Omnichannel journeys powered by Adobe solutions."
+        }
+      ]
+    },
+    "technology_partner_resources": {
+      "description": "Integration guides and technical resources from technology partners.",
+      "resources": [
+        {
+          "id": "tpp-res-aws",
+          "partner": "Amazon Web Services",
+          "resource_type": "Integration Guide",
+          "url": "https://developer.adobe.com/aws-integration",
+          "description": "Deploying AEM on AWS with CloudFormation."
+        },
+        {
+          "id": "tpp-res-google",
+          "partner": "Google Cloud Platform",
+          "resource_type": "Solution Brief",
+          "url": "https://developer.adobe.com/gcp-brief",
+          "description": "Scaling Adobe Experience Manager on GCP."
+        }
+      ]
+    }
+  },
+  "created_at": "2025-06-29T22:30:00.000000",
+  "version": "2.0"
+}

@@ -1,0 +1,90 @@
+{
+  "title": "Expert Company Services Portfolio",
+  "language": "en",
+  "category": "services",
+  "content": {
+    "digital_analytics": {
+      "description": "Advanced data analytics and business intelligence solutions for enterprise clients.",
+      "solutions": [
+        "Real-time data visualization",
+        "Predictive analytics", 
+        "Performance optimization",
+        "Custom dashboard development"
+      ],
+      "technology_partners": [
+        {
+          "name": "Microsoft Azure",
+          "partner_type": "Cloud Platform"
+        },
+        {
+          "name": "AWS", 
+          "partner_type": "Cloud Services"
+        }
+      ]
+    },
+    "digital_transformation": {
+      "description": "End-to-end digital transformation services for modern businesses.",
+      "solutions": [
+        "Process automation",
+        "System integration",
+        "Digital workflow optimization",
+        "Cloud migration services"
+      ],
+      "technology_partners": [
+        {
+          "name": "Google Cloud",
+          "partner_type": "Cloud Platform"
+        },
+        {
+          "name": "Salesforce",
+          "partner_type": "CRM Solutions"
+        }
+      ]
+    },
+    "partnership_levels": [
+      {
+        "level": "Basic",
+        "benefits": [
+          "Standard support access",
+          "Basic documentation", 
+          "Community forum access"
+        ],
+        "requirements": {
+          "annual_commitment": "€25k+",
+          "minimum_projects": 2,
+          "compliance_training": true
+        }
+      },
+      {
+        "level": "Professional",
+        "benefits": [
+          "Priority support access",
+          "Dedicated account manager",
+          "Advanced training resources",
+          "Co-marketing opportunities"
+        ],
+        "requirements": {
+          "annual_commitment": "€100k+",
+          "minimum_projects": 5,
+          "compliance_training": true
+        }
+      },
+      {
+        "level": "Enterprise",
+        "benefits": [
+          "24/7 premium support",
+          "Executive business reviews",
+          "Custom solution development",
+          "Strategic planning sessions"
+        ],
+        "requirements": {
+          "annual_commitment": "€500k+",
+          "minimum_projects": 10,
+          "compliance_training": true
+        }
+      }
+    ]
+  },
+  "created_at": "2025-06-29T22:30:00.000000",
+  "version": "2.0"
+}

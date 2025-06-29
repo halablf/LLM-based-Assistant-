@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expert Company Chat Assistant</title>
+    <link rel="stylesheet" href="src/styles/widget.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏢</text></svg>">
+    <meta name="description" content="AI-powered chat assistant for petroleum engineering and training services">
+    <meta name="theme-color" content="#2563eb">
+</head>
+<body>
+    <div class="expert-chat-widget" id="chatWidget">
+        <!-- Language Selector -->
+        <div class="language-selector-container" id="languageSelector"></div>
+        
+        <!-- Chat Header -->
+        <div class="chat-header">
+            <h1 class="chat-title">What can I help you with?</h1>
+        </div>
+
+        <!-- Chat Interface -->
+        <div class="chat-interface">
+            <!-- Chat Messages Area -->
+            <div class="chat-messages" id="chatMessages" style="display: none;">
+                <!-- Messages will be rendered here -->
+            </div>
+
+            <!-- Input Section -->
+            <div class="chat-input-section">
+                <div class="chat-input-container">
+                    <textarea 
+                        class="chat-input" 
+                        id="chatInput" 
+                        placeholder="Type your message..."
+                        rows="1"
+                        maxlength="1000"
+                    ></textarea>
+                    <button class="chat-send-button" id="sendButton" type="button" disabled>
+                        <svg class="send-icon" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions" id="quickActions">
+                <button class="quick-action-button" data-action="screenshot">
+                    📸 Clone a Screenshot
+                </button>
+                <button class="quick-action-button" data-action="figma">
+                    🎨 Import from Figma
+                </button>
+                <button class="quick-action-button" data-action="landing">
+                    🌐 Landing Page
+                </button>
+                <button class="quick-action-button" data-action="signup">
+                    📝 Sign Up Form
+                </button>
+                <button class="quick-action-button" data-action="calculate">
+                    🔢 Calculate Factorial
+                </button>
+            </div>
+        </div>
+
+        <!-- Status Indicator -->
+        <div class="status-indicator" id="statusIndicator">
+            <div class="status-dot"></div>
+            <span class="status-text">Connecting...</span>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module">
+        // Main application script
+        import { ChatWidget } from './src/ChatWidget.js';
+        
+        // Initialize the chat widget when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('chatWidget');
+            const config = {
+                apiUrl: 'http://127.0.0.1:8001',
+                theme: 'light',
+                language: 'en',
+                debug: true
+            };
+            
+            try {
+                const chatWidget = new ChatWidget(container, config);
+                
+                // Global reference for debugging
+                window.chatWidget = chatWidget;
+                
+                console.log('🚀 Expert Company Chat Widget initialized successfully');
+            } catch (error) {
+                console.error('❌ Failed to initialize chat widget:', error);
+                
+                // Show fallback interface
+                showFallbackInterface();
+            }
+        });
+
+        // Fallback interface for when modules fail to load
+        function showFallbackInterface() {
+            const chatInput = document.getElementById('chatInput');
+            const sendButton = document.getElementById('sendButton');
+            const chatMessages = document.getElementById('chatMessages');
+            const quickActions = document.getElementById('quickActions');
+            const statusIndicator = document.getElementById('statusIndicator');
+            
+            // Show messages area
+            chatMessages.style.display = 'block';
+            
+            // Update status
+            statusIndicator.innerHTML = `
+                <div class="status-dot" style="background: #ef4444;"></div>
+                <span class="status-text">Offline Mode</span>
+            `;
+            
+            // Enable input
+            chatInput.disabled = false;
+            sendButton.disabled = false;
+            
+            // Add welcome message
+            chatMessages.innerHTML = `
+                <div class="message message-assistant">
+                    <div class="message-content">
+                        <div class="content-text">
+                            Welcome to Expert Company Chat Assistant! 🏢<br><br>
+                            <strong>Available Services:</strong><br>
+                            • Petroleum Engineering Consultancy<br>
+                            • HSE Safety Training<br>
+                            • Technical Training Programs<br>
+                            • Multilingual Support (EN/AR/FR)<br><br>
+                            <em>Note: Running in offline mode. For full functionality, please ensure the backend server is running.</em>
+                        </div>
+                    </div>
+                    <div class="message-timestamp">Just now</div>
+                </div>
+            `;
+            
+            // Handle input
+            function handleInput() {
+                const message = chatInput.value.trim();
+                if (!message) return;
+                
+                // Add user message
+                const userMessage = document.createElement('div');
+                userMessage.className = 'message message-user';
+                userMessage.innerHTML = `
+                    <div class="message-content">
+                        <div class="content-text">${message}</div>
+                    </div>
+                    <div class="message-timestamp">Just now</div>
+                `;
+                chatMessages.appendChild(userMessage);
+                
+                // Clear input
+                chatInput.value = '';
+                sendButton.disabled = true;
+                
+                // Scroll to bottom
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                
+                // Simulate response
+                setTimeout(() => {
+                    const responses = [
+                        "Thank you for your inquiry! I'm currently running in offline mode, but I'd be happy to help you with information about our petroleum engineering services.",
+                        "I understand you're interested in our services. For real-time assistance, please ensure our backend server is running at http://127.0.0.1:8001",
+                        "That's a great question! Our Expert Company specializes in petroleum engineering consultancy and training. Would you like to know more about our specific services?",
+                        "I can help you with questions about petroleum engineering, HSE safety training, and technical programs. What specific area interests you most?",
+                        "Excellent! We offer comprehensive training and consultancy services. In full online mode, I can provide detailed, multilingual responses and connect you with our specialists."
+                    ];
+                    
+                    const response = responses[Math.floor(Math.random() * responses.length)];
+                    
+                    const assistantMessage = document.createElement('div');
+                    assistantMessage.className = 'message message-assistant';
+                    assistantMessage.innerHTML = `
+                        <div class="message-content">
+                            <div class="content-text">${response}</div>
+                        </div>
+                        <div class="message-timestamp">Just now</div>
+                    `;
+                    chatMessages.appendChild(assistantMessage);
+                    
+                    // Scroll to bottom
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }, 1000);
+            }
+            
+            // Event listeners
+            sendButton.addEventListener('click', handleInput);
+            
+            chatInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    handleInput();
+                }
+            });
+            
+            chatInput.addEventListener('input', (e) => {
+                sendButton.disabled = !e.target.value.trim();
+                
+                // Auto-resize textarea
+                e.target.style.height = 'auto';
+                e.target.style.height = Math.min(e.target.scrollHeight, 120) + 'px';
+            });
+            
+            // Quick actions
+            quickActions.addEventListener('click', (e) => {
+                if (e.target.classList.contains('quick-action-button')) {
+                    const action = e.target.dataset.action;
+                    const actionMessages = {
+                        screenshot: "I can help you with screenshot analysis and cloning. What type of interface would you like to recreate?",
+                        figma: "I can assist with Figma imports and design analysis. Do you have a specific design file you'd like to work with?",
+                        landing: "I can help you create effective landing pages for petroleum engineering services. What's your target audience?",
+                        signup: "I can help design signup forms for training programs. What information do you need to collect?",
+                        calculate: "I can help with engineering calculations and factorial computations. What would you like to calculate?"
+                    };
+                    
+                    chatInput.value = actionMessages[action] || "Tell me more about this service.";
+                    sendButton.disabled = false;
+                    chatInput.focus();
+                }
+            });
+        }
+
+        // Performance monitoring
+        window.addEventListener('load', () => {
+            console.log('🔍 Page Performance:');
+            console.log('DOM Content Loaded:', performance.getEntriesByType('navigation')[0].domContentLoadedEventEnd);
+            console.log('Load Complete:', performance.getEntriesByType('navigation')[0].loadEventEnd);
+        });
+    </script>
+</body>
+</html> 
