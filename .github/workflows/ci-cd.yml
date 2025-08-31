@@ -67,15 +67,10 @@ jobs:
 
     - name: Run linting
       run: |
-        # Install linting tools
         pip install black isort flake8 mypy
-        # Check code formatting
         black --check backend/app/
-        # Check import sorting
         isort --check-only backend/app/
-        # Run flake8
         flake8 backend/app/
-        # Run mypy (type checking)
         mypy backend/app/ --ignore-missing-imports
 
     - name: Run tests
@@ -106,13 +101,11 @@ jobs:
 
     - name: Run security scan
       run: |
-        # Scan for security issues
         bandit -r backend/app/ -f json -o bandit-report.json || true
-        # Check for known security vulnerabilities
         safety check --json --output safety-report.json || true
 
     - name: Upload security reports
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: security-reports
         path: |
@@ -187,4 +180,4 @@ jobs:
           echo "✅ Deployment successful"
         else
           echo "❌ Deployment failed or skipped"
-        fi 
+        fi
